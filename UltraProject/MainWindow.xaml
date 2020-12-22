@@ -1,0 +1,10 @@
+﻿<metro:MetroWindow x:Class="UltraProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="UltraMC" Icon="ultra.ico" WindowStartupLocation="CenterScreen">
+    <Grid>
+        
+    </Grid>
+</metro:MetroWindow>
