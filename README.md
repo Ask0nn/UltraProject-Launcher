@@ -1,4 +1,4 @@
 # UltraProject-Launcher
 ![](UltraProject/ultra.png)
 
-[На проект](https://www.google.com)
+[Ссылка на проект](http://ultramc.ru)
