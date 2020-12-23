@@ -1,15 +1,13 @@
 ﻿using Newtonsoft.Json;
+using PropertyChanged;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Controls;
-using System.Windows.Threading;
-using PropertyChanged;
-using System.Diagnostics;
 using System.Windows.Input;
+using System.Windows.Threading;
 using UltraProject.Services;
-using System.Windows.Resources;
 
 namespace UltraProject.Controlls
 {
