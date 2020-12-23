@@ -9,6 +9,7 @@ using PropertyChanged;
 using System.Diagnostics;
 using System.Windows.Input;
 using UltraProject.Services;
+using System.Windows.Resources;
 
 namespace UltraProject.Controlls
 {
@@ -33,7 +34,6 @@ namespace UltraProject.Controlls
             {
                 SelectedIndex = 0;
                 ImagesCollection = JsonConvert.DeserializeObject<ObservableCollection<Models.Image>>(File.ReadAllText("images-path.json"));
-
                 if (ImagesCollection.Count >= 1)
                 {
                     Random = new Random();

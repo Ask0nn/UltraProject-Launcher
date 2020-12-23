@@ -9,6 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Background\1.jpg" />
+    <None Remove="Resources\Background\10.jpg" />
+    <None Remove="Resources\Background\11.png" />
+    <None Remove="Resources\Background\2.jpg" />
+    <None Remove="Resources\Background\3.png" />
+    <None Remove="Resources\Background\4.jpg" />
+    <None Remove="Resources\Background\5.jpg" />
+    <None Remove="Resources\Background\6.jpg" />
+    <None Remove="Resources\Background\7.jpg" />
+    <None Remove="Resources\Background\8.jpg" />
+    <None Remove="Resources\Background\9.jpg" />
+    <None Remove="Resources\images-path.json" />
+    <None Remove="Resources\launcher-settings.json" />
     <None Remove="ultra.ico" />
     <None Remove="ultra.png" />
   </ItemGroup>
@@ -18,10 +31,24 @@
     <PackageReference Include="MaterialDesignColors" Version="1.2.7" />
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.1.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.3.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Background\1.jpg" />
+    <Resource Include="Resources\Background\10.jpg" />
+    <Resource Include="Resources\Background\11.png" />
+    <Resource Include="Resources\Background\2.jpg" />
+    <Resource Include="Resources\Background\3.png" />
+    <Resource Include="Resources\Background\4.jpg" />
+    <Resource Include="Resources\Background\5.jpg" />
+    <Resource Include="Resources\Background\6.jpg" />
+    <Resource Include="Resources\Background\7.jpg" />
+    <Resource Include="Resources\Background\8.jpg" />
+    <Resource Include="Resources\Background\9.jpg" />
+    <Resource Include="Resources\images-path.json" />
+    <Resource Include="Resources\launcher-settings.json" />
     <Resource Include="ultra.ico" />
   </ItemGroup>
 

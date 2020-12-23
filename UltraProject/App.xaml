@@ -56,9 +56,7 @@
                 <Setter Property="BorderThickness" Value="3"/>
                 <Setter Property="BorderBrush" Value="{StaticResource MahApps.Brushes.Accent}"/>
             </Style>
-
-<<<<<<< HEAD
-=======
+            
             <Style TargetType="mah:MetroWindow">
                 <Setter Property="GlowBrush" Value="{DynamicResource AccentColorBrush}"/>
                 <Setter Property="FontFamily" Value="Comic Sans MS"/>
@@ -70,7 +68,6 @@
                 <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
             </Style>
 
->>>>>>> 9e5c18b345624f237cdc4b0e25491377fa4f8a84
             <SolidColorBrush x:Key="UltraRed" Color="#f44336"/>
             <SolidColorBrush x:Key="UltraGreen" Color="#32a852"/>
         </ResourceDictionary>

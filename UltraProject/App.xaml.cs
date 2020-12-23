@@ -1,16 +1,12 @@
 ﻿using System;
-<<<<<<< HEAD
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Resources;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Resources;
-=======
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
->>>>>>> 9e5c18b345624f237cdc4b0e25491377fa4f8a84
 
 namespace UltraProject
 {
@@ -21,7 +17,6 @@ namespace UltraProject
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-<<<<<<< HEAD
             if (!File.Exists("images-path.json"))
             {
                 StreamResourceInfo res = GetResourceStream(new Uri("pack://application:,,,/Resources/images-path.json"));
@@ -29,8 +24,44 @@ namespace UltraProject
                 res.Stream.CopyTo(file);
                 file.Close();
             }
-=======
->>>>>>> 9e5c18b345624f237cdc4b0e25491377fa4f8a84
+
+            var files = GetResources("resources/background/*");
+            if (files.Count >= 1)
+            {
+                if (!Directory.Exists("Background"))
+                    Directory.CreateDirectory("Background");
+
+                foreach (var file in files)
+                {
+                    var path = file.Key.Replace(@"resources/", "");
+                    if (!File.Exists(path))
+                    {
+                        var newFile = new FileStream(path, FileMode.Create, FileAccess.Write);
+                        file.Value.CopyTo(newFile);
+                        newFile.Close();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Получение ресурсов по фильтру
+        /// </summary>
+        /// <param name="filter">Фильтр</param>
+        private static IDictionary<string, UnmanagedMemoryStream> GetResources(string filter)
+        {
+            var asm = Assembly.GetEntryAssembly();
+            string resName = asm.GetName().Name + ".g.resources";
+            Stream stream = asm.GetManifestResourceStream(resName);
+            ResourceReader reader = new ResourceReader(stream);
+            IDictionary<string, UnmanagedMemoryStream> ret = new Dictionary<string, UnmanagedMemoryStream>();
+            foreach (DictionaryEntry res in reader)
+            {
+                string path = (string)res.Key;
+                if (Regex.IsMatch(path, filter))
+                    ret.Add(path, (UnmanagedMemoryStream)res.Value);
+            }
+            return ret;
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)

@@ -1,0 +1,23 @@
+﻿{
+    "WindowTitle": "UltraMC",
+    "URL": "https://ultramc.ru",
+    "Version": "Beta 1.0.0",
+    "ModPacks": [
+        {
+            "ID": "1",
+            "path": "/test1"
+        },
+        {
+            "ID": "3",
+            "path": "/test3"
+        },
+        {
+            "ID": "6",
+            "path": "/test6"
+        }
+    ],
+    "Connections": {
+        "Authorize": "",
+        "ModPacks": ""
+    }
+}
