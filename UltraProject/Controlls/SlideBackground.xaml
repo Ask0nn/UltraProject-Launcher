@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="UltraProject.Controlls.SlideBackground"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+    <Grid>
+        <md:Transitioner ItemsSource="{Binding ImagesCollection, UpdateSourceTrigger=PropertyChanged}"
+                         SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}"
+                         SelectedItem="{Binding SelectedImage, UpdateSourceTrigger=PropertyChanged}">
+            <md:Transitioner.ItemTemplate>
+                <DataTemplate DataType="{x:Type md:TransitionerSlide}">
+                    <Image Source="{Binding Path}" Stretch="Fill"/>
+                </DataTemplate>
+            </md:Transitioner.ItemTemplate>
+
+            <md:Transitioner.ItemContainerStyle>
+                <Style TargetType="md:TransitionerSlide">
+                    <Setter Property="OpeningEffect" Value="None"/>
+                    <Setter Property="BackwardWipe">
+                        <Setter.Value>
+                            <md:CircleWipe/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ForwardWipe">
+                        <Setter.Value>
+                            <md:CircleWipe/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </md:Transitioner.ItemContainerStyle>
+        </md:Transitioner>
+        <md:PackIcon Kind="InfoCircle" 
+                     VerticalAlignment="Top" HorizontalAlignment="Right"
+                     Width="24" Height="24" Margin="10"
+                     Foreground="{StaticResource MahApps.Brushes.AccentBase}"
+                     ToolTip="{Binding Path=SelectedImage.Path}">
+            <md:PackIcon.InputBindings>
+                <MouseBinding Gesture="LeftClick" 
+                              Command="{Binding ShowImage}"/>
+            </md:PackIcon.InputBindings>
+        </md:PackIcon>
+    </Grid>
+</UserControl>
