@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Resources;
@@ -25,6 +26,14 @@ namespace UltraProject
                 file.Close();
             }
 
+            if (!File.Exists("launcher-settings.json"))
+            {
+                StreamResourceInfo res = GetResourceStream(new Uri("pack://application:,,,/Resources/launcher-settings.json"));
+                var file = new FileStream("launcher-settings.json", FileMode.Create, FileAccess.Write);
+                res.Stream.CopyTo(file);
+                file.Close();
+            }
+
             var files = GetResources("resources/background/*");
             if (files.Count >= 1)
             {
@@ -42,6 +51,8 @@ namespace UltraProject
                     }
                 }
             }
+
+            RuntimeHelpers.RunClassConstructor(typeof(Services.LauncherSettingsController).TypeHandle);
         }
 
         /// <summary>
