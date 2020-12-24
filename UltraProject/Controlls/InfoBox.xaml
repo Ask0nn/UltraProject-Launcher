@@ -1,0 +1,14 @@
+﻿<md:Card x:Class="UltraProject.Controlls.InfoBox"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+         xmlns:service="clr-namespace:UltraProject.Services"
+         Background="{StaticResource MahApps.Brushes.Accent4}"
+         DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+    <StackPanel Orientation="Horizontal" Margin="10">
+        <TextBlock Text="{Binding Version, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Сайт проекта">
+            <Hyperlink Command="{x:Static service:Link.OpenLink}"/>
+        </TextBlock>
+    </StackPanel>
+</md:Card>
