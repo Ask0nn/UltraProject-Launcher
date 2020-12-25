@@ -18,12 +18,12 @@
                     <Setter Property="OpeningEffect" Value="None"/>
                     <Setter Property="BackwardWipe">
                         <Setter.Value>
-                            <md:CircleWipe/>
+                            <md:FadeWipe/>
                         </Setter.Value>
                     </Setter>
                     <Setter Property="ForwardWipe">
                         <Setter.Value>
-                            <md:CircleWipe/>
+                            <md:FadeWipe/>
                         </Setter.Value>
                     </Setter>
                 </Style>

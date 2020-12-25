@@ -3,12 +3,17 @@
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
          xmlns:service="clr-namespace:UltraProject.Services"
-         Background="{StaticResource MahApps.Brushes.Accent4}"
+         Background="{StaticResource MahApps.Brushes.Accent3}"
          DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
-    <StackPanel Orientation="Horizontal" Margin="10">
-        <TextBlock Text="{Binding Version, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Сайт проекта">
-            <Hyperlink Command="{x:Static service:Link.OpenLink}"/>
+    <StackPanel Orientation="Horizontal" Margin="5">
+        <TextBlock Text="{Binding Version, UpdateSourceTrigger=PropertyChanged}"
+                   Margin="0 0 10 0"/>
+        <TextBlock>
+            <Hyperlink Command="{x:Static service:Link.OpenLink}" 
+                       CommandParameter="{Binding URL}"
+                       ToolTip="{Binding URL, UpdateSourceTrigger=PropertyChanged}">
+                Сайт проекта
+            </Hyperlink>
         </TextBlock>
     </StackPanel>
 </md:Card>

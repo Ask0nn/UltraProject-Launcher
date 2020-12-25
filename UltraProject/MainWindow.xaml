@@ -11,5 +11,9 @@
         Icon="ultra.ico" WindowStartupLocation="CenterScreen">
     <Grid>
         <controlls:SlideBackground/>
+        <controlls:InfoBox Version="{Binding Source={x:Static service:LauncherSettingsController.Settings}, Path=Version, Mode=OneTime}"
+                           URL="{Binding Source={x:Static service:LauncherSettingsController.Settings}, Path=URL, Mode=OneTime}"
+                           VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10 0"/>
+        <metro:TransitioningContentControl/>
     </Grid>
 </metro:MetroWindow>

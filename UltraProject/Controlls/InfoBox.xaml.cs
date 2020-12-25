@@ -28,9 +28,9 @@ namespace UltraProject.Controlls
         }
 
         public static readonly DependencyProperty VersionProperty =
-            DependencyProperty.Register("Version", typeof(string), typeof(InfoBox), new PropertyMetadata(0));
+            DependencyProperty.Register("Version", typeof(string), typeof(InfoBox), new PropertyMetadata(default(string)));
 
         public static readonly DependencyProperty URLProperty =
-            DependencyProperty.Register("URL", typeof(string), typeof(InfoBox), new PropertyMetadata(0));
+            DependencyProperty.Register("URL", typeof(string), typeof(InfoBox), new PropertyMetadata(default(string)));
     }
 }
