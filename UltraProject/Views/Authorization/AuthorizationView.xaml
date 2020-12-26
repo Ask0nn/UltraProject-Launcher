@@ -1,9 +1,39 @@
-﻿<UserControl x:Class="UltraProject.Views.Authorization.AuthorizationView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls">
-    <Grid>
-        
+﻿<md:Card x:Class="UltraProject.Views.Authorization.AuthorizationView"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+         Background="{StaticResource MahApps.Brushes.Accent3}" 
+         VerticalAlignment="Stretch" HorizontalAlignment="Center"
+         MinWidth="500">
+    <Grid Margin="20" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="Авторизация" Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                       HorizontalAlignment="Center"/>
+            <Separator Margin="0 20 0 0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="0 20 0 0">
+            <TextBox Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                         md:TextFieldAssist.TextFieldCornerRadius="5"
+                         md:ThemeAssist.Theme="Light"
+                         md:HintAssist.Hint="Логин"
+                         Margin="0 10"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+            <PasswordBox Style="{StaticResource MaterialDesignFilledPasswordFieldPasswordBox}"
+                             md:TextFieldAssist.TextFieldCornerRadius="5"
+                             md:ThemeAssist.Theme="Light"
+                             md:HintAssist.Hint="Пароль"
+                             metro:PasswordBoxHelper.CapsLockWarningToolTip="True"
+                             Margin="0 10"
+                             metro:PasswordBoxBindingBehavior.Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
+            <CheckBox Content="Запомнить пользователя" HorizontalAlignment="Left"/>
+            <Separator Margin="0 30 0 0"/>
+        </StackPanel>
+        <Button Content="Авторизация" Grid.Row="2" Margin="0 20 0 0" FontSize="16"/>
     </Grid>
-</UserControl>
+</md:Card>

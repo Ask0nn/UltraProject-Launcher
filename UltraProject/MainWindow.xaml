@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:view="clr-namespace:UltraProject.Views.Authorization"
         xmlns:service="clr-namespace:UltraProject.Services"
         xmlns:controlls="clr-namespace:UltraProject.Controlls"
         FontFamily="Comic Sans MS" TextElement.FontSize="16" WindowTransitionsEnabled="False"
@@ -14,6 +15,8 @@
         <controlls:InfoBox Version="{Binding Source={x:Static service:LauncherSettingsController.Settings}, Path=Version, Mode=OneTime}"
                            URL="{Binding Source={x:Static service:LauncherSettingsController.Settings}, Path=URL, Mode=OneTime}"
                            VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10 0"/>
-        <metro:TransitioningContentControl/>
+        <metro:TransitioningContentControl Transition="Default">
+            <view:AuthorizationView/>
+        </metro:TransitioningContentControl>
     </Grid>
 </metro:MetroWindow>
