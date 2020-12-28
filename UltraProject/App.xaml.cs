@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Resources;
@@ -18,6 +17,14 @@ namespace UltraProject
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            if (!File.Exists("user-settings.json"))
+            {
+                StreamResourceInfo res = GetResourceStream(new Uri("pack://application:,,,/Resources/user-settings.json"));
+                var file = new FileStream("user-settings.json", FileMode.Create, FileAccess.Write);
+                res.Stream.CopyTo(file);
+                file.Close();
+            }
+
             if (!File.Exists("images-path.json"))
             {
                 StreamResourceInfo res = GetResourceStream(new Uri("pack://application:,,,/Resources/images-path.json"));
@@ -51,10 +58,7 @@ namespace UltraProject
                     }
                 }
             }
-
-            RuntimeHelpers.RunClassConstructor(typeof(Services.LauncherSettingsController).TypeHandle);
         }
-
         /// <summary>
         /// Получение ресурсов по фильтру
         /// </summary>
@@ -74,7 +78,6 @@ namespace UltraProject
             }
             return ret;
         }
-
         private void Application_Exit(object sender, ExitEventArgs e)
         {
         }

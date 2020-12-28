@@ -1,0 +1,17 @@
+﻿{
+  "UserSettings": {
+    "Username": "",
+    "AuthToken": "",
+    "IsSave": false
+  },
+  "MinecraftSettings": {
+    "Memory": "1024",
+    "GameDir": "",
+    "JavaType": "x32",
+    "Javax64": "Вставить URL для джавы",
+    "Javax32": "Вставить URL для джавы",
+    "JavaBuiltIn": "True",
+    "JavaPath": "E:\\Java\\bin\\java.exe",
+    "Debug": "False"
+  }
+}

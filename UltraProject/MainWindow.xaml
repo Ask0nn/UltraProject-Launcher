@@ -2,18 +2,22 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:UltraProject.ViewModel"
         xmlns:view="clr-namespace:UltraProject.Views.Authorization"
-        xmlns:service="clr-namespace:UltraProject.Services"
         xmlns:controlls="clr-namespace:UltraProject.Controlls"
         FontFamily="Comic Sans MS" TextElement.FontSize="16" WindowTransitionsEnabled="False"
         BorderThickness="1" MinHeight="700" MinWidth="1250" ResizeMode="CanResizeWithGrip"
-        Title="{Binding Source={x:Static service:LauncherSettingsController.Settings}, Path=WindowTitle, Mode=OneTime}"
+        Title="{Binding Settings.Settings.WindowTitle, UpdateSourceTrigger=PropertyChanged}"
         Icon="ultra.ico" WindowStartupLocation="CenterScreen">
+
+    <metro:MetroWindow.DataContext>
+        <vm:MainWindowViewModel x:Name="vm"/>
+    </metro:MetroWindow.DataContext>
+    
     <Grid>
         <controlls:SlideBackground/>
-        <controlls:InfoBox Version="{Binding Source={x:Static service:LauncherSettingsController.Settings}, Path=Version, Mode=OneTime}"
-                           URL="{Binding Source={x:Static service:LauncherSettingsController.Settings}, Path=URL, Mode=OneTime}"
+        <controlls:InfoBox Version="{Binding ElementName=vm, Path=Settings.Settings.Version, UpdateSourceTrigger=PropertyChanged}"
+                           URL="{Binding ElementName=vm, Path=Settings.Settings.Version, UpdateSourceTrigger=PropertyChanged}"
                            VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10 0"/>
         <metro:TransitioningContentControl Transition="Default">
             <view:AuthorizationView/>
