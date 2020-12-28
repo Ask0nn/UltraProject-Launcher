@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using UltraProject.Services;
 
-namespace UltraProject.Controlls
+namespace UltraProject.Controls
 {
     /// <summary>
     /// Логика взаимодействия для SlideBackground.xaml

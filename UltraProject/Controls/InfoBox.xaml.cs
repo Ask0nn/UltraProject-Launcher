@@ -2,7 +2,7 @@
 using PropertyChanged;
 using System.Windows;
 
-namespace UltraProject.Controlls
+namespace UltraProject.Controls
 {
     /// <summary>
     /// Логика взаимодействия для InfoBox.xaml
